@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
 import { Box, CircleCheck, CircleX, ChevronLeft, ShoppingBag, Truck } from "lucide-react";
 import { Card, SectionPage } from "@/components/section-page";
@@ -45,7 +46,7 @@ function Orders() {
           .map((o) => {
             const t = tones[o.status];
             return (
-              <Card key={o.id}>
+              <Link key={o.id} to="/orders/$id" params={{ id: o.id }} className="block"><Card>
                 <div className="flex items-center gap-4">
                   <span className={`flex size-14 shrink-0 items-center justify-center rounded-full ${t.cls}`}>
                     <t.icon className="size-7" />
@@ -58,7 +59,7 @@ function Orders() {
                   </div>
                   <ChevronLeft className="text-muted-foreground" />
                 </div>
-              </Card>
+              </Card></Link>
             );
           })
       }

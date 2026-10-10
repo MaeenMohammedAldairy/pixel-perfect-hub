@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Box, BookOpen, ChevronLeft, Eye, Laptop, Palette, Search, Shirt, ShoppingCart } from "lucide-react";
@@ -45,7 +46,7 @@ function Products() {
         items
           .filter((i) => (f === "الكل" || i.type === f) && i.name.includes(q))
           .map(({ icon: I, ...i }) => (
-            <Card key={i.name}>
+            <Link key={i.name} to="/products/$id" params={{ id: i.id }} className="block"><Card>
               <div className="flex items-center gap-4">
                 <span className="flex size-20 shrink-0 items-center justify-center rounded-xl bg-[var(--mint-surface)] text-primary">
                   <I className="size-10" />
@@ -61,7 +62,7 @@ function Products() {
                 </div>
                 <ChevronLeft className="text-muted-foreground" />
               </div>
-            </Card>
+            </Card></Link>
           ))
       }
     </SectionPage>

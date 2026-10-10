@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarRange, Eye, Heart, MessageSquare, MoreVertical, Pencil } from "lucide-react";
 import { Card, SectionPage } from "@/components/section-page";
@@ -45,7 +46,7 @@ function Posts() {
         posts
           .filter((x) => f === "الكل" || map[f] === x.p)
           .map((x) => (
-            <Card key={x.text}>
+            <Link key={x.text} to="/posts/$id" params={{ id: x.id }} className="block"><Card>
               <div className="flex items-start gap-3">
                 <SocialIcon platform={x.p} />
                 <p className="flex-1 font-semibold leading-7">{x.text}</p>
@@ -57,7 +58,7 @@ function Posts() {
                 <span className="flex items-center gap-1"><Heart className="size-3.5" />{x.likes}</span>
                 <span className="flex items-center gap-1"><Eye className="size-3.5" />{x.views}</span>
               </div>
-            </Card>
+            </Card></Link>
           ))
       }
     </SectionPage>

@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageSquareMore } from "lucide-react";
 import { Card, SectionPage } from "@/components/section-page";
@@ -41,7 +42,7 @@ function Chats() {
         chats
           .filter((c) => f === "الكل" || map[f] === c.p)
           .map((c) => (
-            <Card key={c.name}>
+            <Link key={c.name} to="/chats/$id" params={{ id: c.id }} className="block"><Card>
               <div className="flex items-center gap-3">
                 <SocialIcon platform={c.p} />
                 <div className="min-w-0 flex-1">
@@ -53,7 +54,7 @@ function Chats() {
                   <span className="flex size-6 items-center justify-center rounded-full bg-primary font-bold text-primary-foreground">{c.unread}</span>
                 </div>
               </div>
-            </Card>
+            </Card></Link>
           ))
       }
     </SectionPage>
