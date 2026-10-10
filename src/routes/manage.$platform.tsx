@@ -3,7 +3,6 @@ import {
   ArrowUpRight, Bell, Check, ChevronDown, ChevronLeft, ChevronRight, Eye, FileText, Heart,
   MessageCircle, MessageSquare, Send, Server, ShieldCheck, ThumbsUp, UserPlus, Users,
 } from "lucide-react";
-import { MenaFlowMark } from "@/components/menaflow-brand";
 import { SocialIcon, type SocialPlatform } from "@/components/social-icon";
 import { AppNav } from "@/components/app-nav";
 import { chats, posts } from "@/lib/mock-data";
@@ -73,7 +72,6 @@ function Manage() {
           <p className="truncate text-xs text-muted-foreground" dir="ltr">{d.sub}</p>
         </div>
         <span className="relative"><Bell className="size-6" /><span className="notification-count">3</span></span>
-        <div className="brand-wordmark hidden sm:flex" dir="ltr"><MenaFlowMark /><span>MenaFlow</span></div>
       </header>
 
       <div className="flex flex-col gap-3 px-1 py-5">
