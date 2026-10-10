@@ -1480,3 +1480,7 @@ button {
     font-size: 17px;
   }
 }
+
+.platform-tint-facebook { background: color-mix(in oklab, var(--card) 92%, oklch(0.6 0.18 255)); }
+.platform-tint-instagram { background: color-mix(in oklab, var(--card) 93%, oklch(0.62 0.22 350)); }
+.platform-tint-whatsapp { background: color-mix(in oklab, var(--card) 92%, var(--primary)); }
