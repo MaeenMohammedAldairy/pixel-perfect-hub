@@ -15,10 +15,12 @@ import { Route as ConnectAccountsRouteImport } from './routes/connect-accounts'
 import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as PostsRouteImport } from './routes/posts'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as ChatsIdRouteImport } from './routes/chats_.$id'
 import { Route as ConnectFacebookRouteImport } from './routes/connect.facebook'
 import { Route as ConnectInstagramRouteImport } from './routes/connect.instagram'
 import { Route as ConnectWhatsappRouteImport } from './routes/connect.whatsapp'
+import { Route as ManagePlatformRouteImport } from './routes/manage.$platform'
 import { Route as OrdersIdRouteImport } from './routes/orders_.$id'
 import { Route as PostsIdRouteImport } from './routes/posts_.$id'
 import { Route as ProductsIdRouteImport } from './routes/products_.$id'
@@ -53,6 +55,11 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SourcesRoute = SourcesRouteImport.update({
+  id: '/sources',
+  path: '/sources',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChatsIdRoute = ChatsIdRouteImport.update({
   id: '/chats_/$id',
   path: '/chats/$id',
@@ -71,6 +78,11 @@ const ConnectInstagramRoute = ConnectInstagramRouteImport.update({
 const ConnectWhatsappRoute = ConnectWhatsappRouteImport.update({
   id: '/connect/whatsapp',
   path: '/connect/whatsapp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManagePlatformRoute = ManagePlatformRouteImport.update({
+  id: '/manage/$platform',
+  path: '/manage/$platform',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrdersIdRoute = OrdersIdRouteImport.update({
@@ -96,10 +108,12 @@ export interface FileRoutesByFullPath {
   '/orders': typeof OrdersRoute
   '/posts': typeof PostsRoute
   '/products': typeof ProductsRoute
+  '/sources': typeof SourcesRoute
   '/chats/$id': typeof ChatsIdRoute
   '/connect/facebook': typeof ConnectFacebookRoute
   '/connect/instagram': typeof ConnectInstagramRoute
   '/connect/whatsapp': typeof ConnectWhatsappRoute
+  '/manage/$platform': typeof ManagePlatformRoute
   '/orders/$id': typeof OrdersIdRoute
   '/posts/$id': typeof PostsIdRoute
   '/products/$id': typeof ProductsIdRoute
@@ -111,10 +125,12 @@ export interface FileRoutesByTo {
   '/orders': typeof OrdersRoute
   '/posts': typeof PostsRoute
   '/products': typeof ProductsRoute
+  '/sources': typeof SourcesRoute
   '/chats/$id': typeof ChatsIdRoute
   '/connect/facebook': typeof ConnectFacebookRoute
   '/connect/instagram': typeof ConnectInstagramRoute
   '/connect/whatsapp': typeof ConnectWhatsappRoute
+  '/manage/$platform': typeof ManagePlatformRoute
   '/orders/$id': typeof OrdersIdRoute
   '/posts/$id': typeof PostsIdRoute
   '/products/$id': typeof ProductsIdRoute
@@ -127,10 +143,12 @@ export interface FileRoutesById {
   '/orders': typeof OrdersRoute
   '/posts': typeof PostsRoute
   '/products': typeof ProductsRoute
+  '/sources': typeof SourcesRoute
   '/chats_/$id': typeof ChatsIdRoute
   '/connect/facebook': typeof ConnectFacebookRoute
   '/connect/instagram': typeof ConnectInstagramRoute
   '/connect/whatsapp': typeof ConnectWhatsappRoute
+  '/manage/$platform': typeof ManagePlatformRoute
   '/orders_/$id': typeof OrdersIdRoute
   '/posts_/$id': typeof PostsIdRoute
   '/products_/$id': typeof ProductsIdRoute
@@ -144,10 +162,12 @@ export interface FileRouteTypes {
     | '/orders'
     | '/posts'
     | '/products'
+    | '/sources'
     | '/chats/$id'
     | '/connect/facebook'
     | '/connect/instagram'
     | '/connect/whatsapp'
+    | '/manage/$platform'
     | '/orders/$id'
     | '/posts/$id'
     | '/products/$id'
@@ -159,10 +179,12 @@ export interface FileRouteTypes {
     | '/orders'
     | '/posts'
     | '/products'
+    | '/sources'
     | '/chats/$id'
     | '/connect/facebook'
     | '/connect/instagram'
     | '/connect/whatsapp'
+    | '/manage/$platform'
     | '/orders/$id'
     | '/posts/$id'
     | '/products/$id'
@@ -174,10 +196,12 @@ export interface FileRouteTypes {
     | '/orders'
     | '/posts'
     | '/products'
+    | '/sources'
     | '/chats_/$id'
     | '/connect/facebook'
     | '/connect/instagram'
     | '/connect/whatsapp'
+    | '/manage/$platform'
     | '/orders_/$id'
     | '/posts_/$id'
     | '/products_/$id'
@@ -190,10 +214,12 @@ export interface RootRouteChildren {
   OrdersRoute: typeof OrdersRoute
   PostsRoute: typeof PostsRoute
   ProductsRoute: typeof ProductsRoute
+  SourcesRoute: typeof SourcesRoute
   ChatsIdRoute: typeof ChatsIdRoute
   ConnectFacebookRoute: typeof ConnectFacebookRoute
   ConnectInstagramRoute: typeof ConnectInstagramRoute
   ConnectWhatsappRoute: typeof ConnectWhatsappRoute
+  ManagePlatformRoute: typeof ManagePlatformRoute
   OrdersIdRoute: typeof OrdersIdRoute
   PostsIdRoute: typeof PostsIdRoute
   ProductsIdRoute: typeof ProductsIdRoute
@@ -243,6 +269,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sources': {
+      id: '/sources'
+      path: '/sources'
+      fullPath: '/sources'
+      preLoaderRoute: typeof SourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/chats_/$id': {
       id: '/chats_/$id'
       path: '/chats/$id'
@@ -269,6 +302,13 @@ declare module '@tanstack/react-router' {
       path: '/connect/whatsapp'
       fullPath: '/connect/whatsapp'
       preLoaderRoute: typeof ConnectWhatsappRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manage/$platform': {
+      id: '/manage/$platform'
+      path: '/manage/$platform'
+      fullPath: '/manage/$platform'
+      preLoaderRoute: typeof ManagePlatformRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/orders_/$id': {
@@ -302,10 +342,12 @@ const rootRouteChildren: RootRouteChildren = {
   OrdersRoute: OrdersRoute,
   PostsRoute: PostsRoute,
   ProductsRoute: ProductsRoute,
+  SourcesRoute: SourcesRoute,
   ChatsIdRoute: ChatsIdRoute,
   ConnectFacebookRoute: ConnectFacebookRoute,
   ConnectInstagramRoute: ConnectInstagramRoute,
   ConnectWhatsappRoute: ConnectWhatsappRoute,
+  ManagePlatformRoute: ManagePlatformRoute,
   OrdersIdRoute: OrdersIdRoute,
   PostsIdRoute: PostsIdRoute,
   ProductsIdRoute: ProductsIdRoute,

@@ -17,6 +17,7 @@ import {
   Share2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AppNav } from "@/components/app-nav";
 import { MenaFlowMark } from "@/components/menaflow-brand";
 import { SocialIcon, type SocialPlatform } from "@/components/social-icon";
 import robotImage from "@/assets/menaflow-robot.jpg";
@@ -141,17 +142,18 @@ function Index() {
         <div className="platform-grid">
           {platforms.map(({ platform, label }) => (
             <Link
-              to="/connect-accounts"
+              to="/manage/$platform"
+              params={{ platform }}
               className="platform-item platform-tile-link"
               key={platform}
-              aria-label={`ربط حساب ${label}`}
+              aria-label={`إدارة ${label}`}
             >
               <SocialIcon platform={platform} />
               <h3>{label}</h3>
               <span className="platform-add platform-tile-add">
                 <Plus />
               </span>
-              <span>ربط الحساب</span>
+              <span>إدارة الحساب</span>
             </Link>
           ))}
         </div>
@@ -212,19 +214,7 @@ function Index() {
         </div>
       </section>
 
-      <nav className="bottom-navigation" aria-label="القائمة الرئيسية">
-        {navigation.map(({ label, icon: Icon }, index) => (
-          <Button
-            key={label}
-            variant="dashboardNav"
-            className={index === 0 ? "nav-active" : ""}
-            aria-current={index === 0 ? "page" : undefined}
-          >
-            <Icon />
-            <span>{label}</span>
-          </Button>
-        ))}
-      </nav>
+      <AppNav active="الرئيسية" />
     </main>
   );
 }
