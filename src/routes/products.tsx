@@ -18,12 +18,7 @@ export const Route = createFileRoute("/products")({
   component: Products,
 });
 
-const items = [
-  { name: "دليل التسويق الرقمي الشامل", type: "منتجات رقمية", price: "29.99", views: "3.2k", sales: 125, icon: BookOpen },
-  { name: "تيشيرت MenaFlow", type: "منتجات مادية", price: "19.99", views: "1.8k", sales: 87, icon: Shirt },
-  { name: "قالب موقع إلكتروني احترافي", type: "منتجات رقمية", price: "49.99", views: "2.5k", sales: 142, icon: Laptop },
-  { name: "باقة تصميم الهوية البصرية", type: "الخدمات", price: "99.00", views: "1.1k", sales: 64, icon: Palette },
-];
+const items = products;
 
 function Products() {
   const [q, setQ] = useState("");
