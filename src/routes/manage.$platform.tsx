@@ -54,7 +54,7 @@ export const Route = createFileRoute("/manage/$platform")({
   },
   component: Manage,
   notFoundComponent: () => <p className="p-10 text-center">المنصة غير موجودة</p>,
-  errorComponent: ({ error }) => <p className="p-10 text-center">{error.message}</p>,
+  errorComponent: () => <p className="p-10 text-center">حدث خطأ</p>,
 });
 
 const card = "rounded-2xl border bg-card p-4 shadow-sm";
