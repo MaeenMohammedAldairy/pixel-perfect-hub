@@ -1,3 +1,4 @@
+import { chats } from "@/lib/mock-data";
 import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageSquareMore } from "lucide-react";
@@ -18,14 +19,6 @@ export const Route = createFileRoute("/chats")({
   component: Chats,
 });
 
-const chats: { p: SocialPlatform; name: string; msg: string; time: string; unread: number }[] = [
-  { p: "whatsapp", name: "أحمد محمد", msg: "السلام عليكم، أود الاستفسار عن سعر...", time: "10:24 ص", unread: 2 },
-  { p: "instagram", name: "سارة علي", msg: "هل ما زال العرض متاح؟", time: "9:50 ص", unread: 1 },
-  { p: "facebook", name: "محمد عبدالله", msg: "شكراً على الرد السريع", time: "9:12 ص", unread: 3 },
-  { p: "whatsapp", name: "ليلى فهد", msg: "كم تستغرق عملية التوصيل؟", time: "8:45 ص", unread: 1 },
-  { p: "instagram", name: "خالد الصيري", msg: "رائع جداً شكراً لكم", time: "8:20 ص", unread: 1 },
-  { p: "facebook", name: "نور حسن", msg: "هل يمكنني الدفع عند الاستلام؟", time: "7:56 ص", unread: 2 },
-];
 const map: Record<string, SocialPlatform> = { واتساب: "whatsapp", فيسبوك: "facebook", إنستجرام: "instagram" };
 
 function Chats() {

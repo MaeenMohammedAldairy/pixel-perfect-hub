@@ -1,3 +1,4 @@
+import { posts } from "@/lib/mock-data";
 import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarRange, Eye, Heart, MessageSquare, MoreVertical, Pencil } from "lucide-react";
@@ -19,12 +20,6 @@ export const Route = createFileRoute("/posts")({
   component: Posts,
 });
 
-const posts: { p: SocialPlatform; text: string; date: string; likes: number; comments: number; views: string }[] = [
-  { p: "instagram", text: "متجاتنا الجديدة متوفرة الآن بجودة عالية وأسعار مميزة!", date: "2025/05/10", likes: 412, comments: 56, views: "2.8k" },
-  { p: "facebook", text: "نحن هنا لنساعدك في تحقيق أهدافك التسويقية!", date: "2025/05/08", likes: 298, comments: 34, views: "1.8k" },
-  { p: "instagram", text: "خصم خاص لفترة محدودة 50% لا تفوت الفرصة!", date: "2025/05/05", likes: 620, comments: 112, views: "112" },
-  { p: "whatsapp", text: "مرحباً! 👋 هل تحتاج إلى مساعدة؟", date: "2025/05/03", likes: 145, comments: 27, views: "892" },
-];
 const map: Record<string, SocialPlatform> = { "منشورات فيسبوك": "facebook", "منشورات إنستجرام": "instagram", "منشورات واتساب": "whatsapp" };
 
 function Posts() {
